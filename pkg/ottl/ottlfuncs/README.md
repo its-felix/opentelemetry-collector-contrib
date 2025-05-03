@@ -500,6 +500,7 @@ Available Converters:
 - [ParseKeyValue](#parsekeyvalue)
 - [ParseSimplifiedXML](#parsesimplifiedxml)
 - [ParseXML](#parsexml)
+- [ProfileID](#profileid)
 - [RemoveXML](#removexml)
 - [Second](#second)
 - [Seconds](#seconds)
@@ -554,7 +555,7 @@ Examples:
 The `Decode` Converter takes a string or byte array encoded with the specified encoding and returns the decoded string.
 
 `value` is a valid encoded string or byte array.
-`encoding` is a valid encoding name included in the [IANA encoding index](https://www.iana.org/assignments/character-sets/character-sets.xhtml).
+`encoding` is a valid encoding name included in the [IANA encoding index](https://www.iana.org/assignments/character-sets/character-sets.xhtml) or one of `base64`, `base64-raw`, `base64-url` or `base64-raw-url`.
 
 Examples:
 
@@ -1713,6 +1714,18 @@ Examples:
 - `ParseXML(log.attributes["xml"])`
 
 - `ParseXML("<HostInfo hostname=\"example.com\" zone=\"east-1\" cloudprovider=\"aws\" />")`
+
+### ProfileID
+
+`ProfileID(bytes)`
+
+The `ProfileID` Converter returns a `pprofile.ProfileID` struct from the given byte slice.
+
+`bytes` is a byte slice of exactly 16 bytes.
+
+Examples:
+
+- `ProfileID(0x00112233445566778899aabbccddeeff)`
 
 ### RemoveXML
 
